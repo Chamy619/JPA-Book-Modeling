@@ -26,6 +26,10 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
+    @OneToOne
+    @JoinColumn(name = "delivery_id")
+    private Delivery delivery;
+
     public void setMember(Member member) {
         if (this.member != null) {
             this.member.getOrders().remove(this);
@@ -38,6 +42,11 @@ public class Order {
     public void addOrderItem(OrderItem orderItem) {
         this.orderItems.add(orderItem);
         orderItem.setOrder(this);
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+        delivery.setOrder(this);
     }
 
     // Getter, Setter
@@ -70,4 +79,7 @@ public class Order {
         return orderItems;
     }
 
+    public Delivery getDelivery() {
+        return delivery;
+    }
 }
