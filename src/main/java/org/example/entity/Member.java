@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Member {
+public class Member extends BaseEntity {
     @Id
     @GeneratedValue
     @Column(name = "member_id")
@@ -28,7 +28,6 @@ public class Member {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -36,7 +35,6 @@ public class Member {
     public String getCity() {
         return city;
     }
-
     public void setCity(String city) {
         this.city = city;
     }
@@ -44,7 +42,6 @@ public class Member {
     public String getStreet() {
         return street;
     }
-
     public void setStreet(String street) {
         this.street = street;
     }
@@ -52,7 +49,6 @@ public class Member {
     public String getZipcode() {
         return zipcode;
     }
-
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }

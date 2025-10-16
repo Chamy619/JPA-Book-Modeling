@@ -27,14 +27,14 @@ public class Main {
             member.setZipcode("00011");
             em.persist(member);
 
-            Item item = new Item();
-            item.setName("Air pot 4");
-            item.setPrice(100);
-            item.setStockQuantity(5);
-            em.persist(item);
+            Album album = new Album();
+            album.setName("Air pot 4");
+            album.setPrice(100);
+            album.setStockQuantity(5);
+            em.persist(album);
 
             OrderItem orderItem = new OrderItem();
-            orderItem.setItem(item);
+            orderItem.setItem(album);
             orderItem.setOrderPrice(100);
             em.persist(orderItem);
 
