@@ -18,7 +18,6 @@ public class Main {
 
         try {
             tx.begin();
-            // TODO: 여기 비즈니스 로직이 들어가야 함
 
             Member member = new Member();
             member.setName("Chamy");
@@ -36,13 +35,18 @@ public class Main {
             OrderItem orderItem = new OrderItem();
             orderItem.setItem(album);
             orderItem.setOrderPrice(100);
-            em.persist(orderItem);
+
+            Delivery delivery = new Delivery();
+            delivery.setCity("Seoul");
+            delivery.setZipCode("00011");
+            delivery.setStatus(DeliveryStatus.READY);
 
             Order order = new Order();
             order.setOrderDate(new Date());
             order.setOrderStatus(OrderStatus.ORDER);
             order.setMember(member);
             order.addOrderItem(orderItem);
+            order.setDelivery(delivery);
             em.persist(order);
 
             Order o = em.find(Order.class, order.getId());
