@@ -21,9 +21,8 @@ public class Main {
 
             Member member = new Member();
             member.setName("Chamy");
-            member.setCity("Seoul");
-            member.setStreet("Dobong-ro");
-            member.setZipcode("00011");
+            Address address = new Address("Seoul", "Dobong-ro", "00011");
+            member.setAddress(address);
             em.persist(member);
 
             Album album = new Album();
@@ -37,8 +36,8 @@ public class Main {
             orderItem.setOrderPrice(100);
 
             Delivery delivery = new Delivery();
-            delivery.setCity("Seoul");
-            delivery.setZipCode("00011");
+            Address deliveryAddress = new Address("Seoul", "Dobong-ro", "00011");
+            delivery.setAddress(deliveryAddress);
             delivery.setStatus(DeliveryStatus.READY);
 
             Order order = new Order();
